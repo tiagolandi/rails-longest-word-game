@@ -1,0 +1,24 @@
+
+<div style="text-align: center">
+
+<h1>New game</h1>
+
+<div style="color: darkblue; font-size: 24px">
+  <% @letters.each do |letter| %>
+  <%= letter %>
+  <% end %>
+</div>
+
+
+
+  <h3>What is the longest word you can find?</h3>
+
+  <form action="/score" method="POST">
+    <input type="text" name="answer" placeholder="Guess here" style="width: 250px">
+    <input type="submit" value="Play!">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag 'letters', @letters %>
+    <!-- ver outro jeito no print das 18:52 dia 15 -->
+
+  </form>
+</div>
